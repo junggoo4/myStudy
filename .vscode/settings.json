@@ -1,0 +1,33 @@
+{
+	// 코딩 컨벤션 기본 설정
+	"editor.defaultFormatter": "vscode.html-language-features",
+	"editor.tabSize": 2,
+	"editor.insertSpaces": true,
+	"editor.detectIndentation": false,
+	"editor.formatOnSave": true,
+	"sassVariablesHelper.route": "**/scss/_variables.scss",
+
+	"liveSassCompile.settings.includeItems": [
+		"**/scss/**.scss",
+	],
+
+	"liveSassCompile.settings.formats": [{
+		"format": "expanded",
+		"extensionName": ".css",
+		"savePath": "~/../css/"
+	}],
+
+	"liveSassCompile.settings.excludeList": [
+		"**/node_modules/**",
+		".vscode/**"
+	],
+  
+	"liveSassCompile.settings.generateMap": false,
+	"liveSassCompile.settings.autoprefix": [
+		"> 1%",
+		"last 2 versions"
+	],
+
+	"liveServer.settings.port": 3777,
+	"liveServer.settings.host": "192.168.0.80", // 본인 내부 IP로 변경 사용 (cmd > ipconfig > IPV4 부분 확인)
+}
