@@ -1,24 +1,23 @@
 {
 	// 코딩 컨벤션 기본 설정
-	"editor.defaultFormatter": "vscode.html-language-features",
+	"editor.defaultFormatter": "HookyQR.beautify",
 	"editor.tabSize": 2,
-	"editor.insertSpaces": true,
+	"editor.insertSpaces": false,
 	"editor.detectIndentation": false,
 	"editor.formatOnSave": true,
 	"sassVariablesHelper.route": "**/scss/_variables.scss",
 
-  "liveSassCompile.settings.formats": [
-    {
-      "format": "expanded",
-      "extensionName": ".css",
-      "savePath": "~/../css/"
-    },
-    {
-      "format": "compressed",
-      "extensionName": ".min.css",
-      "savePath": "~/../css/"
-    }
-  ],
+	"liveSassCompile.settings.formats": [{
+			"format": "expanded",
+			"extensionName": ".css",
+			"savePath": "~/../css/"
+		},
+		{
+			"format": "compressed",
+			"extensionName": ".min.css",
+			"savePath": "~/../css/"
+		}
+	],
 
 	"liveSassCompile.settings.generateMap": false,
 	"liveSassCompile.settings.includeItems": [
@@ -29,7 +28,7 @@
 		"**/node_modules/**",
 		".vscode/**"
 	],
-  
+
 	"liveSassCompile.settings.autoprefix": [
 		"> 1%",
 		"last 2 versions"
