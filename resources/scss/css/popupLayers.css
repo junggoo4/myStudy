@@ -49,25 +49,35 @@ body .conBody {
 
 body .conBody .title {
   margin: 20px 0 5px;
+  font-size: 20px;
+}
+
+body .conBody .subTitle {
+  margin: 20px 0 5px;
+  font-size: 18px;
 }
 
 body .conBody .guide .textBox {
   height: 200px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
   background: lightgoldenrodyellow;
   padding: 20px;
 }
 
-.conBody .contentBox > div {
+.conBody .contentBox {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
+.conBody .contentBox > div + div {
+  margin-left: 10px;
+}
+
 .conBody .contentBox > div .examples {
-  overflow-y: auto;
-  overflow-x: hidden;
   width: 510px;
-  height: 330px;
+  height: 370px;
   padding: 20px;
   border: 1px solid #ccc;
 }
@@ -99,7 +109,7 @@ body .conBody .guide .textBox {
   display: none;
   position: absolute;
   top: 25px;
-  left: calc(50% - 75px);
+  left: 0;
   width: 150px;
   padding: 10px;
   border-radius: 7px;

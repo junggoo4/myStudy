@@ -43,11 +43,19 @@ body {
 
 		.title {
 			margin: 20px 0 5px;
+			font-size: 20px;
+		}
+
+		.subTitle {
+			margin: 20px 0 5px;
+			font-size: 18px;
 		}
 
 		.guide {
 			.textBox {
 				height: 200px;
+				border: 1px solid #ccc;
+				border-radius: 5px;
 				background: lightgoldenrodyellow;
 				padding: 20px;
 			}
@@ -58,14 +66,18 @@ body {
 // 툴팁 레이어 구현하기
 .conBody {
 	.contentBox {
+		display: flex;
+
 		>div {
-			display: flex;
+			&+div {
+				margin-left: 10px;
+			}
 
 			.examples {
-				overflow-y: auto;
-				overflow-x: hidden;
+				// overflow-y: auto;
+				// overflow-x: hidden;
 				width: 510px;
-				height: 330px;
+				height: 370px;
 				padding: 20px;
 				border: 1px solid #ccc;
 
@@ -96,7 +108,8 @@ body {
 							display: none;
 							position: absolute;
 							top: 25px;
-							left: calc(50% - 75px);
+							// left: calc(50% - 75px);
+							left: 0;
 							width: 150px;
 							padding: 10px;
 							border-radius: 7px;

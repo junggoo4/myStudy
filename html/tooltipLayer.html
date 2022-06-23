@@ -25,7 +25,7 @@
 				cont.toggle();
 
 				if (cont.hasClass('tooltipB')) {
-					var contTop = btn.offset().top - 390;
+					var contTop = btn.offset().top - 100;
 					cont.css('top', contTop);
 					cont.appendTo('.containerB').attr('tabindex', '0').focus();
 				};
@@ -68,18 +68,17 @@
 	</div>
 	<div class="conBody">
 		<!-- 설명 -->
-		<div class="guide">
+		<!-- <div class="guide">
 			<h2 class="title">설명</h2>
 			<div class="textBox"></div>
-		</div>
+		</div> -->
 
 		<!-- 미리보기 -->
 		<div class="contentBox">
-			<h2 class="title">미리보기</h2>
+			<!-- 내가 작성해 본 방식 -->
 			<div>
-				<!-- 내가 작성해 본 방식 -->
+				<h3 class="subTitle">혼자 구현</h3>
 				<div class="examples">
-					<h3>[혼자 구현]</h3>
 					<div class="containerA">
 						<span>콘텐츠내용입니다. 여기에 콘텐츠가 들어갑니다. 중간에 툴팁이 있을 경우에는</span>
 						<div class="tooltipWrap">
@@ -111,10 +110,11 @@
 							들어갑니다. 중간에 툴팁이 있을 경우에는 이렇게 나오는군요.</span>
 					</div>
 				</div>
-
-				<!-- 우체국 가이드 참고 후 작성 -->
+			</div>
+			<!-- 우체국 가이드 참고 후 작성 -->
+			<div class="test">
+				<h3 class="subTitle">콘텐츠 토글 기능 활용</h3>
 				<div class="examples">
-					<h3>[콘텐츠 토글 기능 활용]</h3>
 					<div class="containerB">
 						<span>콘텐츠내용입니다. 여기에 콘텐츠가 들어갑니다. 중간에 툴팁이 있을 경우에는</span>
 						<a href="#;" class="tooltipBtnB" data-toggle-btn="tooltip1">툴팁버튼A</a>
