@@ -11,23 +11,32 @@
 	<script src="../resources/js/jquery-3.6.0.min.js"></script>
 	<script>
 		$(document).ready(function () {
+
 			$('.selectCustom .selTitle').on('click', function () {
 				if (!$(this).closest('.selectCustom').hasClass('show')) {
 					$('.selectCustom').addClass('show');
-					$(this).attr('title', '검색조건 펼치기');
+					$(this).attr('title', '브랜드 선택 접기');
 				} else {
 					$('.selectCustom').removeClass('show');
-					$(this).attr('title', '검색조건 접기');
+					$(this).attr('title', '브랜드 선택 펼치기');
 				}
+			});
+			$('.selContent li a span').on('click', function () {
+				let selTit = $('.selTitle > span');
+				let selOpt = $(this).text();
+				$('.selectCustom').removeClass('show');
+				$('.selTitle').attr('title', '브랜드 선택 펼치기');
+				selTit.text(selOpt);
+			});
 
-				$('.selContent li a span').on('click', function () {
-					let selTit = $('.selTitle > span');
-					let selOpt = $(this).text();
-
-					$('.selectCustom').removeClass('show');
-					$('.selTitle').attr('title', '검색조건 접기');
-					selTit.text(selOpt);
-				});
+			// 외부영역 클릭 시 팝업 닫기
+			$(document).mouseup(function (e) {
+				e.preventDefault();
+				var selectCustom = $(".selectCustom");
+				if (selectCustom.has(e.target).length === 0) {
+					selectCustom.removeClass("show");
+					$('.selTitle').attr('title', '브랜드 선택 펼치기');
+				};
 			});
 		});
 	</script>
@@ -35,7 +44,6 @@
 
 <body>
 	<div class="conTitle">
-		<a href="../index.html" class="linkBtn">Index 바로가기</a>
 		<h1>셀렉트 박스 구현하기</h1>
 	</div>
 	<div class="conBody">
@@ -78,7 +86,7 @@
 			<!-- 커스텀 -->
 			<h2 class="title">커스텀 셀렉트박스 dl>dt+dd</h2>
 			<div class="examples">
-				<div class="selectCustom selectSm">
+				<div class="selectCustom">
 					<dl>
 						<dt><a href="#;" title="브랜드 선택" class="selTitle"><span>브랜드 선택</span></a></dt>
 						<dd>

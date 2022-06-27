@@ -35,5 +35,5 @@
 	],
 
 	"liveServer.settings.port": 3777,
-	"liveServer.settings.host": "192.168.0.80", // 본인 내부 IP로 변경 사용 (cmd > ipconfig > IPV4 부분 확인)
+	"liveServer.settings.host": "121.173.136.206", // 본인 내부 IP로 변경 사용 (cmd > ipconfig > IPV4 부분 확인)
 }
