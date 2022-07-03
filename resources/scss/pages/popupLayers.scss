@@ -1,0 +1,176 @@
+// 공통
+* {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	box-sizing: border-box;
+	text-decoration: none;
+	list-style: none;
+	color: black;
+	vertical-align: baseline;
+}
+
+body {
+	min-width: 500px;
+
+	.conTitle {
+		display: flex;
+		align-items: center;
+		position: fixed;
+		top: 0;
+		left: 0;
+		z-index: 100;
+		width: 100%;
+		min-width: 500px;
+		padding: 5px;
+		background: #fff;
+
+		.linkBtn {
+			display: inline-block;
+			margin-right: 5px;
+			padding: 5px 10px;
+			border-radius: 5px;
+			background: rgb(49, 49, 49);
+			color: white;
+		}
+	}
+
+	.conBody {
+		position: relative;
+		top: 55px;
+		left: 0;
+		padding: 0 10px 10px;
+
+		.title {
+			margin: 20px 0 5px;
+			font-size: 20px;
+		}
+
+		.subTitle {
+			margin: 20px 0 5px;
+			font-size: 18px;
+		}
+
+		.guide {
+			.textBox {
+				height: 200px;
+				border: 1px solid #ccc;
+				border-radius: 5px;
+				background: lightgoldenrodyellow;
+				padding: 20px;
+			}
+		}
+	}
+}
+
+// 툴팁 레이어 구현하기
+.conBody {
+	.contentBox {
+		display: flex;
+
+		>div {
+			&+div {
+				margin-left: 10px;
+			}
+
+			.examples {
+				// overflow-y: auto;
+				// overflow-x: hidden;
+				width: 510px;
+				height: 370px;
+				padding: 20px;
+				border: 1px solid #ccc;
+
+				&:first-child {
+					margin-right: 10px;
+				}
+
+				.containerA {
+					.tooltipWrap {
+						display: inline-block;
+						position: relative;
+						top: 0;
+						left: 0;
+
+						.tooltipBtnA {
+							display: inline-block;
+							padding: 3px 5px;
+							border-radius: 5px;
+							background: rgb(49, 49, 49);
+							font-size: 14px;
+							font-weight: bold;
+							color: white;
+							line-height: 15px;
+						}
+
+						.tooltipA {
+							display: inline-block;
+							display: none;
+							position: absolute;
+							top: 25px;
+							// left: calc(50% - 75px);
+							left: 0;
+							width: 150px;
+							padding: 10px;
+							border-radius: 7px;
+							background: lightblue;
+							box-shadow: 1px 6px 18px 0px rgb(84, 84, 84);
+
+							.closeBtn {
+								display: inline-block;
+								position: absolute;
+								top: 6px;
+								right: 3px;
+								width: 30px;
+								height: 30px;
+								background: none;
+								cursor: pointer;
+							}
+						}
+					}
+				}
+
+				.containerB {
+					position: relative;
+					top: 0;
+					left: 0;
+
+					.tooltipBtnB {
+						display: inline-block;
+						position: relative;
+						top: 0;
+						left: 0;
+						padding: 3px 5px;
+						border-radius: 5px;
+						background: rgb(49, 49, 49);
+						font-size: 14px;
+						font-weight: bold;
+						color: white;
+						line-height: 15px;
+					}
+
+					.tooltipB {
+						display: none;
+						position: absolute;
+						width: 100%;
+						padding: 10px;
+						border-radius: 7px;
+						background: lightblue;
+						box-shadow: 1px 6px 18px 0px rgb(84, 84, 84);
+
+						.closeBtnB {
+							display: inline-block;
+							position: absolute;
+							top: 0;
+							right: 0;
+							width: 30px;
+							height: 30px;
+							background: none;
+							cursor: pointer;
+						}
+					}
+				}
+			}
+		}
+	}
+}
