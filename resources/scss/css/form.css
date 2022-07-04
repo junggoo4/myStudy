@@ -156,10 +156,6 @@ body .conBody .guide .textBox {
   vertical-align: middle;
 }
 
-.contentBox .examples .selectCustom + .selectCustom {
-  margin-left: 5px;
-}
-
 .contentBox .examples .selectCustom dl {
   position: relative;
 }

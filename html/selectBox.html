@@ -21,7 +21,7 @@
 					$(this).attr('title', '브랜드 선택 펼치기');
 				}
 			});
-			$('.selContent li a span').on('click', function () {
+			$('.selContent li a').on('click', function () {	
 				let selTit = $('.selTitle > span');
 				let selOpt = $(this).text();
 				$('.selectCustom').removeClass('show');
@@ -29,12 +29,25 @@
 				selTit.text(selOpt);
 			});
 
+			// 접근성 포커싱 유지
+			$(document).on('keydown', '.selContent li:last-child a', function (e) {
+				if (e.keyCode == 9 && !e.shiftKey) { // tab키를 누르거나 shift키를 누르지 않았거나
+					e.preventDefault();
+					$(".selTitle").focus();
+				}
+			}).on('keydown', '.selTitle', function (e) {
+				if ($(this).is(e.target) && e.keyCode == 9 && e.shiftKey) {
+					e.preventDefault();
+					$(".selContent li:last-child a").focus();
+				}
+			});
+
 			// 외부영역 클릭 시 팝업 닫기
 			$(document).mouseup(function (e) {
 				e.preventDefault();
 				var selectCustom = $(".selectCustom");
 				if (selectCustom.has(e.target).length === 0) {
-					selectCustom.removeClass("show");
+					selectCustom.removeClass("show");			
 					$('.selTitle').attr('title', '브랜드 선택 펼치기');
 				};
 			});
