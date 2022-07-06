@@ -11,22 +11,26 @@
 	<script src="../resources/js/jquery-3.6.0.min.js"></script>
 	<script>
 		$(document).ready(function () {
-
 			$('.selectCustom .selTitle').on('click', function () {
-				if (!$(this).closest('.selectCustom').hasClass('show')) {
-					$('.selectCustom').addClass('show');
+				var idx = $(this).closest('.selectCustom');
+				if (!idx.hasClass('show')) {
+					$(idx).addClass('show');
 					$(this).attr('title', '브랜드 선택 접기');
 				} else {
-					$('.selectCustom').removeClass('show');
+					$(idx).removeClass('show');
 					$(this).attr('title', '브랜드 선택 펼치기');
 				}
 			});
+
 			$('.selContent li a').on('click', function () {	
-				let selTit = $('.selTitle > span');
-				let selOpt = $(this).text();
+				var selTit = $('.selTitle > span');  // 타이틀 영역
+				var selOpt = $(this).text();  // 클릭한 텍스트
+				var titBox = $(this).closest('.selectCustom');  // 클릭한 최상위 박스
+				var selBox = $(titBox).find(selTit);  // 클릭한 최상위 박스의 타이틀 영역 
+				selBox.text(selOpt);
 				$('.selectCustom').removeClass('show');
 				$('.selTitle').attr('title', '브랜드 선택 펼치기');
-				selTit.text(selOpt);
+				$(titBox).find('.selTitle').focus();
 			});
 
 			// 접근성 포커싱 유지
@@ -99,6 +103,20 @@
 			<!-- 커스텀 -->
 			<h2 class="title">커스텀 셀렉트박스 dl>dt+dd</h2>
 			<div class="examples">
+				<div class="selectCustom">
+					<dl>
+						<dt><a href="#;" title="브랜드 선택" class="selTitle"><span>브랜드 선택</span></a></dt>
+						<dd>
+							<ul class="selContent">
+								<li><a href="#;"><span>나이키</span></a></li>
+								<li><a href="#;"><span>언더아머</span></a></li>
+								<li><a href="#;"><span>입생로랑</span></a></li>
+								<li><a href="#;"><span>셀린느</span></a></li>
+								<li><a href="#;"><span>노스페이스</span></a></li>
+							</ul>
+						</dd>
+					</dl>
+				</div>
 				<div class="selectCustom">
 					<dl>
 						<dt><a href="#;" title="브랜드 선택" class="selTitle"><span>브랜드 선택</span></a></dt>
