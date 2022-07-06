@@ -33,9 +33,9 @@
 			$(document).on('keydown', '.selContent li:last-child a', function (e) {
 				if (e.keyCode == 9 && !e.shiftKey) { // tab키를 누르거나 shift키를 누르지 않았거나
 					e.preventDefault();
-					$(".selTitle").focus();
+					$(".selContent li:first-child a").focus();
 				}
-			}).on('keydown', '.selTitle', function (e) {
+			}).on('keydown', '.selContent li:first-child a', function (e) {
 				if ($(this).is(e.target) && e.keyCode == 9 && e.shiftKey) {
 					e.preventDefault();
 					$(".selContent li:last-child a").focus();
@@ -46,7 +46,7 @@
 			$(document).mouseup(function (e) {
 				e.preventDefault();
 				var selectCustom = $(".selectCustom");
-				if (selectCustom.has(e.target).length === 0) {
+				if (selectCustom.has(e.target).length == 0) {
 					selectCustom.removeClass("show");			
 					$('.selTitle').attr('title', '브랜드 선택 펼치기');
 				};
