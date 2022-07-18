@@ -15,18 +15,26 @@
 			$('.allmenu-list li a').on('click', function() {
 				var clickOn = $(this);
 				var btnTg = clickOn.data('dep-tg');
-				clickOn.closest('li').addClass('on').siblings().removeClass('on');
-				clickOn.closest('.click-case').find('.menu-wrap').hide();
-				$('[data-dep-wrap=' + btnTg + ']').show();
 
-				clickOn.closest('.allmenu-list').next('.allmenu-body').show();
-			});
+				if (!$(this).closest("li").hasClass("on")) {
+					clickOn.closest('li').siblings().removeClass('on');
+					clickOn.closest('li').addClass('on');
+					clickOn.closest('.click-case').find('.menu-wrap').hide();
+					clickOn.closest('.click-case').find('[data-dep-wrap=' + btnTg + ']').show();					
+					clickOn.closest('.mix-case').find('.menu-wrap').hide();
+					clickOn.closest('.mix-case').find('[data-dep-wrap=' + btnTg + ']').show();
+					clickOn.closest('.allmenu-list').next('.allmenu-body').show();
+				} else {
+					clickOn.closest('li').removeClass('on');
+					clickOn.closest('.allmenu-list').next('.allmenu-body').hide();
+				}
+			})			
 			$('.part-list li a').on('click', function() {
 				var clickOn2 = $(this);
 				var btnTg2 = clickOn2.data('dep-tg');			
 				clickOn2.closest('li').addClass('on').siblings().removeClass('on');
 				clickOn2.closest('.menu-wrap').find('.part-content').hide();
-				$('[data-dep-wrap=' + btnTg2 + ']').show();
+				clickOn2.closest('.menu-wrap').find('[data-dep-wrap=' + btnTg2 + ']').show();
 			});
 			$(".content-4dep > li .sub_on").on('click', function () {
 				$(this).next(".content-5dep").slideToggle(300);
@@ -50,6 +58,19 @@
 				$(this).find('.content-3dep').stop().slideDown(400);
 			}).mouseleave(function() {
 				$(this).find('.content-3dep').stop().slideUp(100);
+			});
+
+			// click + hover mix 3dep
+			$('.mix-case .part-list li strong').mousemove(function() {
+				var mouseOn = $(this);
+				if (mouseOn.next('.content-3dep').mouseover && mouseOn.mouseover) {
+					$('.mix-case .part-list li .content-3dep').hide();
+					mouseOn.next('.content-3dep').show();
+				};
+
+				mouseOn.closest('.allmenu-body').mouseleave(function() {
+					$('.mix-case .part-list li .content-3dep').hide();
+				});
 			});
 		});
 	</script>
@@ -76,7 +97,7 @@
 					<h2 class="title">클릭 시 하위메뉴 노출 Case 1 (4Depth)</h2>
 					<div class="click-case click-case1">
 						<ul class="allmenu-list">
-							<li><a href="#;" data-dep-tg="dep_a_1_1">1Dep A</a></li>						
+							<li><a href="#;" data-dep-tg="dep_a_1_1">1Dep A</a></li>				
 							<li><a href="#;" data-dep-tg="dep_a_1_2">1Dep B</a></li>						
 							<li><a href="#;" data-dep-tg="dep_a_1_3">1Dep C</a></li>	
 						</ul>
@@ -148,7 +169,6 @@
 								1Dep C 입니다.
 							</div>
 						</div>
-
 					</div>
 				</div>				
 				<!-- 클릭 시 하위메뉴 노출 - case 1 : 끝 -->
@@ -370,6 +390,68 @@
 					</div>
 				</div>				
 				<!-- 호버 시 하위메뉴 노출 - case 2 : 끝 -->
+
+				<!-- 클릭 + 호버 시 하위메뉴 노출 : 시작 -->
+				<div class="item">
+					<h2 class="title">클릭 + 호버 시 하위메뉴 노출 (3Depth)</h2>
+					<div class="mix-case">
+						<ul class="allmenu-list">
+							<li><a href="#;" data-dep-tg="dep_e_1_1">1Dep A</a></li>						
+							<li><a href="#;" data-dep-tg="dep_e_1_2">1Dep B</a></li>
+							<li><a href="#;" data-dep-tg="dep_e_1_3">1Dep C</a></li>
+						</ul>
+						<div class="allmenu-body">
+							<div class="menu-wrap" data-dep-wrap="dep_e_1_1">
+								<h3 class="sr-only">1Dep A</h3>
+								1Dep A 입니다.
+							</div>
+							<div class="menu-wrap" data-dep-wrap="dep_e_1_2">
+								<h3 class="sr-only">1Dep B</h3>
+								<ul class="part-list">
+									<li>
+										<strong>2Dep A</strong>
+										<ul class="content-3dep">
+											<li><a href="#;">3Dep A</a></li>
+											<li><a href="#;">3Dep B</a></li>
+											<li><a href="#;">3Dep C</a></li>
+											<li><a href="#;">3Dep D</a></li>
+											<li><a href="#;">3Dep E</a></li>
+											<li><a href="#;">3Dep F</a></li>
+										</ul>
+									</li>
+									<li>
+										<strong>2Dep B</strong>
+										<ul class="content-3dep">
+											<li>2Dep B 입니다.</li>
+										</ul>
+									</li>
+									<li>
+										<strong>2Dep C</strong>
+										<ul class="content-3dep">
+											<li>2Dep C 입니다.</li>
+										</ul>
+									</li>
+									<li>
+										<strong>2Dep D</strong>
+										<ul class="content-3dep">
+											<li><a href="#;">3Dep A</a></li>
+											<li><a href="#;">3Dep B</a></li>
+											<li><a href="#;">3Dep C</a></li>
+											<li><a href="#;">3Dep D</a></li>
+											<li><a href="#;">3Dep E</a></li>
+											<li><a href="#;">3Dep F</a></li>
+										</ul>
+									</li>
+								</ul>
+							</div>
+							<div class="menu-wrap" data-dep-wrap="dep_e_1_3">
+								<h3 class="sr-only">1Dep C</h3>
+								1Dep C 입니다.
+							</div>
+						</div>
+					</div>
+				</div>				
+				<!-- 클릭 + 호버 시 하위메뉴 노출 : 끝 -->
 			</div>
 			
 		</div>
